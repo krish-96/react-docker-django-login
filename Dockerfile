@@ -1,4 +1,4 @@
-FROM python3.6
+FROM python:3.6
 WORKDIR /LoginProject
 COPY . .
 RUN "python3 -m venv venv"
