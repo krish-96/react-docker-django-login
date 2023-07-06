@@ -34,7 +34,7 @@ RUN python manage.py migrate --no-input
 # RUN python manage.py collectstatic --no-input
 
 # Killing port number
-RUN kill port $(lsof -t -i:8000)
+RUN sudo kill $(lsof -t -i:8000)
 
 # Run the Django development server
 CMD python manage.py runserver 0.0.0.0:8000
