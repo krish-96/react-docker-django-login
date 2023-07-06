@@ -1,10 +1,16 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 
 # Create your views here.
+
+def home(request):
+    return HttpResponse('<h1 style="color:red;text-a;ign:center;">Home page</>')
+
 @api_view(['POST'])
 def register(request):
     if request.method == 'POST':
