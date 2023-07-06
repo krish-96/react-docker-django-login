@@ -23,6 +23,10 @@ RUN apt-get update -y && apt-get install -y build-essential
 # Install dependencies
 RUN pip install -r requirements.txt
 
+# Manager commands
+RUN python manage.py migrate --no-input
+RUN python manage.py loaddata initial_data guest_type_data
+RUN python manage.py collectstatic --no-input
 
 # Run the Django development server
 CMD python manage.py runserver 0.0.0.0:8000
