@@ -23,7 +23,7 @@ RUN apt-get update -y && apt-get install -y build-essential
 # Adding Virtual envinement
 RUN python3 -m venv env
 # Activate virtual env
-RUN source env/bin/activate
+RUN . env/bin/activate
 
 # Install dependencies
 RUN pip install -r requirements.txt
