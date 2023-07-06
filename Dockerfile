@@ -25,7 +25,7 @@ RUN pip install -r requirements.txt
 
 # Manager commands
 RUN python manage.py migrate --no-input
-RUN python manage.py loaddata initial_data guest_type_data
+# RUN python manage.py loaddata initial_data guest_type_data
 RUN python manage.py collectstatic --no-input
 
 # Run the Django development server
