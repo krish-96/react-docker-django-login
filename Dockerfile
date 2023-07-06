@@ -20,6 +20,11 @@ COPY . .
 
 RUN apt-get update -y && apt-get install -y build-essential
 
+# Adding Virtual envinement
+RUN python3 -m venv venv
+# Activate virtual env
+RUN source venv/bin/activate
+
 # Install dependencies
 RUN pip install -r requirements.txt
 
@@ -27,6 +32,9 @@ RUN pip install -r requirements.txt
 RUN python manage.py migrate --no-input
 # RUN python manage.py loaddata initial_data guest_type_data
 # RUN python manage.py collectstatic --no-input
+
+# Killing port number
+RUN kill port $(lsof -t -i:8000)
 
 # Run the Django development server
 CMD python manage.py runserver 0.0.0.0:8000
