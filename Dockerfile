@@ -18,6 +18,8 @@ WORKDIR /app
 # Copy the project code into the container
 COPY . .
 
+RUN apt-get update -y && apt-get install -y build-essential
+
 # Install dependencies
 RUN pip install -r requirements.txt
 
