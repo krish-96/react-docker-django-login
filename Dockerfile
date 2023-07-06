@@ -10,7 +10,7 @@
 # CMD ["python3","manage.py runserver"]
 
 # Use an official Python runtime as the base image
-FROM python:3.9-alpine
+FROM python:3.9
 
 # Set the working directory in the container
 WORKDIR /app
